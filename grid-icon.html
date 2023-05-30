@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style>
+      .grid-icon {
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: none;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 50px;
+        padding: 50px;
+
+        span {
+          width: 70px;
+          height: 70px;
+          border-radius: 20px;
+          display: inline-block;
+          background-color: white;
+          position: relative;
+          box-shadow: 10px 10px 20px black;
+        }
+      }
+    </style>
+  </head>
+<body>
+  <div onClick={() => {
+      html2canvas(ref.current, {
+        backgroundColor: null,
+        foreignObjectRendering: true,
+      }).then((e) => {
+        document.body.append(e);
+        // window.open(e.toDataURL());
+        // console.log('Windows.tsx > 57', e.toDataURL());
+      });
+    }}>
+      <div className={'grid-icon'} ref={ref}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+</body>
+</html>
